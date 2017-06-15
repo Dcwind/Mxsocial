@@ -3,7 +3,7 @@ import React from 'react';
 import {mount} from 'react-mounter';
 
 import HomeLayoutComponent from '../../components/layouts/HomeLayoutComponent';
-
+import LayoutComponent from '../../components/layouts/LayoutComponent'
 
 publicRoutes = FlowRouter.group({
     name: "publicroutes"

@@ -20,7 +20,7 @@ publicRoutes.route('/',{
     }
 });
 
-privateRoutes.route('/',{
+privateRoutes.route('/dashboard',{
     name:'Dashboard',
     action:function(){
         mount(LayoutComponent,{

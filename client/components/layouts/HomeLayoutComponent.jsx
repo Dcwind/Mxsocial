@@ -8,10 +8,10 @@ class HomeLayoutComponent extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-6">
-
+                            Features
                         </div>
                         <div className="col-md-5 col-md-offset-1">
-                            
+                            Sign up
                         </div>
                     </div>
                 </div>
@@ -20,6 +20,6 @@ class HomeLayoutComponent extends Component {
     }
 }
 
-console.log("test");
+
 
 export default HomeLayoutComponent;

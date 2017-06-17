@@ -1,12 +1,12 @@
-import react, {Component} from 'react';
+import React, {Component} from 'react';
 
- class SignupForm extends Component{
+export default class SignupForm extends Component{
      render(){
          return (
              <div className="row">
                  <div className="signup">
                      <h1>Sign Up
-                         <p className="text-muted">Its's free and always will be.</p>
+                         <h5 className="text-muted">Its's free and always will be.</h5>
                      </h1>
                  </div>
                  <form action="">
@@ -25,6 +25,7 @@ import react, {Component} from 'react';
                          <div className="form-group">
                              <input name="password" placeholder="Password" ref="password" className="form-control" type="password" />
                          </div>
+                         <button type="submit" className="btn btn-block">Sign up</button>
                      </div>
                  </form>
              </div>

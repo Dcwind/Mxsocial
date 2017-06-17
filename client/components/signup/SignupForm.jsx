@@ -13,14 +13,18 @@ import react, {Component} from 'react';
                      <div className="col-sm-9">
                          <div className="row">
                              <div className="col-sm-6 form-group">
-                                 <input name="first_name" placeholder="First Name" ref="first_name" type="text" />
+                                 <input name="first_name" placeholder="First Name" ref="first_name" className="form-control" type="text" />
                              </div>
                              <div className="col-sm-6 form-group">
-                                 <input name="last_name" placeholder="Last Name" ref="last_name" type="text" />
+                                 <input name="last_name" placeholder="Last Name" ref="last_name" className="form-control" type="text" />
                              </div>
                          </div>
-                         <div className="form-group"></div>
-                         <div className="form-group"></div>
+                         <div className="form-group">
+                             <input name="email" placeholder="Email or Phone Number" ref="email" className="form-control" type="text" />
+                         </div>
+                         <div className="form-group">
+                             <input name="password" placeholder="Password" ref="password" className="form-control" type="password" />
+                         </div>
                      </div>
                  </form>
              </div>

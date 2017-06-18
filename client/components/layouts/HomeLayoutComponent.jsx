@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import SignupForm from '../signup/SignupForm';
+import Header from '../header/Header';
 
 class HomeLayoutComponent extends Component {
     render(){
         return (
             <div>
-                Header
+                <Header/>
                 <div className="container">
                     <div className="row">
                         <div className="col-md-6">

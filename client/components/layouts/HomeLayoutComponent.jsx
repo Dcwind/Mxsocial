@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SignupForm from '../signup/SignupForm';
 import Header from '../header/Header';
+import FeaturesList from '../features/FeaturesList'
 
 class HomeLayoutComponent extends Component {
     render(){
@@ -10,7 +11,7 @@ class HomeLayoutComponent extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-6">
-                            Features
+                            <FeaturesList/>
                         </div>
                         <div className="col-md-5 col-md-offset-1">
                             <SignupForm/>

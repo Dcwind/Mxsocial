@@ -18,6 +18,10 @@ export default class SignupForm extends Component{
      displayError(message){
          this.setState({message:message,messageClass:'alert alert-danger registerError'});
      }
+
+     handleSubmit(e){
+         
+     }
      render(){
          return (
              <div className="row">

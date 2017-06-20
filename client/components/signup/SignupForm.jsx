@@ -1,10 +1,22 @@
 import React, {Component} from 'react';
 
 export default class SignupForm extends Component{
+    // mixins = [ReactMeteorData];
      getMeteorData(){
          let data = {};
          data.currentUser = Meteor.user();
          return data;
+     }
+
+     getInitialState(){
+         return {
+             message:'',
+             messageClass:''
+         }
+     }
+
+     displayError(message){
+         this.setState({message:message,messageClass:'alert alert-danger registerError'});
      }
      render(){
          return (

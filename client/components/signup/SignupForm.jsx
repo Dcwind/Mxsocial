@@ -22,7 +22,8 @@ export default class SignupForm extends Component{
      handleSubmit(e){
          e.preventDefault();
          this.setState({message:'',messageClass:'hidden'});
-         
+         var that = this; 
+         var first_name =ReactDOM.findDOMNode(this.refs.first_name).value.trim();
      }
      render(){
          return (

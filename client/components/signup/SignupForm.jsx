@@ -20,6 +20,8 @@ export default class SignupForm extends Component{
      }
 
      handleSubmit(e){
+         e.preventDefault();
+         this.setState({message:'',messageClass:'hidden'});
          
      }
      render(){

@@ -1,6 +1,11 @@
 import React, {Component} from 'react';
 
 export default class SignupForm extends Component{
+     getMeteorData(){
+         let data = {};
+         data.currentUser = Meteor.user();
+         return data;
+     }
      render(){
          return (
              <div className="row">

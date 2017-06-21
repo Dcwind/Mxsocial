@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import { Accounts } from 'meteor/accounts-base';
-import ReactDOM from 'react-dom';
+
 
 export default class SignupForm extends Component{
+    // registerError
     // mixins = [ReactMeteorData];
     //  getMeteorData(){
     //      let data = {};
@@ -26,7 +27,7 @@ export default class SignupForm extends Component{
      displayError(message){
          this.setState({
              message:message,
-             messageClass:'alert alert-danger registerError'
+             messageClass:'alert alert-danger'
             });
      }
 
@@ -72,7 +73,9 @@ export default class SignupForm extends Component{
                      </h1>
                  </div>
                  <form onSubmit={this.handleSubmit}>
+                     
                      <div className="col-sm-9">
+                         <div className={this.state.messageClass}>{this.state.message}</div>
                          <div className="row">
                              <div className="col-sm-6 form-group">
                                  <input name="first_name" placeholder="First Name" ref="first_name" className="form-control" type="text" />
@@ -87,9 +90,7 @@ export default class SignupForm extends Component{
                          <div className="form-group">
                              <input name="password" placeholder="Password" ref="password" className="form-control" type="password" />
                          </div>
-                         <span className={this.state.messageClass}>{this.state.message}</span>
                          <button type="submit" className="btn btn-block">Sign up</button>
-                         
                      </div>
                  </form>
              </div>

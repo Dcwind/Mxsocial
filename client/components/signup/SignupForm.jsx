@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Meteor from 'meteor';
 import ReactDOM from 'react-dom';
 
 export default class SignupForm extends Component{

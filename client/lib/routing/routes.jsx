@@ -3,7 +3,7 @@ import React from 'react';
 import {mount} from 'react-mounter';
 
 import HomeLayoutComponent from '../../components/layouts/HomeLayoutComponent';
-import LayoutComponent from '../../components/layouts/LayoutComponent'
+import DashBoardLayoutComponent from '../../components/layouts/LayoutComponent'
 
 publicRoutes = FlowRouter.group({
     name: "publicroutes"
@@ -23,9 +23,9 @@ publicRoutes.route('/',{
 privateRoutes.route('/dashboard',{
     name:'Dashboard',
     action:function(){
-        mount(LayoutComponent,{
+        mount(DashBoardLayoutComponent,{
             sidebar: <div>Sidebar</div>,
-            content: <div>content</div>
+            content: <Main/>
         })
     }
 });

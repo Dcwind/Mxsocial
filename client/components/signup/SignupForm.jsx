@@ -29,6 +29,13 @@ export default class SignupForm extends Component{
          var last_name =ReactDOM.findDOMNode(this.refs.last_name).value.trim();
          var email =ReactDOM.findDOMNode(this.refs.email).value.trim();
          var password =ReactDOM.findDOMNode(this.refs.password).value.trim();
+         var user = {email:email,password:password, profile:{fullname: (first_name + " " + last_name).toLowerCase(), firstname:first_name, lastname:last_name, avatar:'http://placehold.it/150x150', friends:[]} };
+         Accounts.createUser(user,function(e){ 
+             FlowRouter.go('/dashboard');
+             if(e){
+                 
+             }
+         });
      }
      render(){
          return (
@@ -55,6 +62,7 @@ export default class SignupForm extends Component{
                              <input name="password" placeholder="Password" ref="password" className="form-control" type="password" />
                          </div>
                          <button type="submit" className="btn btn-block">Sign up</button>
+                         <span className={this.state.messageClass}>{this.state.message}</span>
                      </div>
                  </form>
              </div>

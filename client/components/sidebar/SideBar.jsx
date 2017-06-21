@@ -12,7 +12,7 @@ export default class SideBar extends Component{
 
     render(){
         return (
-            
+            <div>side Bar</div>
         )
     }
 }

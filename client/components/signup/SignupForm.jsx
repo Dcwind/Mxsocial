@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
 
 export default class SignupForm extends Component{
     // mixins = [ReactMeteorData];
@@ -25,6 +26,8 @@ export default class SignupForm extends Component{
          var that = this; 
          var first_name =ReactDOM.findDOMNode(this.refs.first_name).value.trim();
          var last_name =ReactDOM.findDOMNode(this.refs.last_name).value.trim();
+         var email =ReactDOM.findDOMNode(this.refs.email).value.trim();
+         var password =ReactDOM.findDOMNode(this.refs.password).value.trim();
      }
      render(){
          return (

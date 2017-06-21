@@ -3,7 +3,8 @@ import React from 'react';
 import {mount} from 'react-mounter';
 
 import HomeLayoutComponent from '../../components/layouts/HomeLayoutComponent';
-import DashBoardLayoutComponent from '../../components/layouts/LayoutComponent'
+import DashBoardLayoutComponent from '../../components/layouts/DashBoardLayoutComponent';
+import Main from '../../components/main/Main';
 
 publicRoutes = FlowRouter.group({
     name: "publicroutes"

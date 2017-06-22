@@ -4,10 +4,10 @@ export default class StatusBar extends Component{
     constructor(props){
         super(props)
 
-        this.setState({
+        this.state ={
             image:'',
             filename:''
-        })
+        };
     }
     render(){
         return(
@@ -29,8 +29,9 @@ export default class StatusBar extends Component{
                             <div>
                                 <ul className="pull-left list-inline">
                                     <li>
-                                        <input type="file" id="file" className="filepicker"/>
+                                        <input type="file" ref="file" id="file" className="filepicker"/>
                                     </li>
+                                    <button className="btn btn-primary btn-sm postbutton">Post</button>
                                 </ul>
                             </div>
                         </div>

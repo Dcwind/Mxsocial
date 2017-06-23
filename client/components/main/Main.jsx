@@ -4,6 +4,7 @@ import Posts from '../post/Posts';
 
 export default class Main extends Component{
     render(){
+        var adObj = {_id:1,text:'My First Ad',title:'Some Company',image:'http://placehold.it/200x200'};
         return(
             <div className="col-sm-9 col-sm-11" id="main">
                 <div>

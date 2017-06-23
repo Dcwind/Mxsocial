@@ -8,7 +8,15 @@ export default class StatusBar extends Component{
             image:'',
             filename:''
         };
+
+        this.uploadFile = this.uploadFile.bind(this);
     }
+
+    uploadFile(e){
+        e.preventDefault();
+        
+    }
+
     render(){
         return(
             <div className="panel panel-default">
@@ -29,7 +37,7 @@ export default class StatusBar extends Component{
                             <div>
                                 <ul className="pull-left list-inline">
                                     <li>
-                                        <input type="file" ref="file" id="file" className="filepicker"/>
+                                        <input type="file" onChange={this.uploadFile} ref="file" id="file" className="filepicker"/>
                                     </li>
                                     <button className="btn btn-primary btn-sm postbutton">Post</button>
                                 </ul>

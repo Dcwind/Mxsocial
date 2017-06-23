@@ -25,8 +25,9 @@ export default class Posts extends Component{
                   </div>
                   <div className="actions">
                       <a href="" className="btn btn-default stat-item">
-                          <i className="fa fa-thumbs-up icon"></i>&nbsp; 10 Likes
+                          <i className="fa fa-thumbs-up icon"></i>&nbsp; 
                       </a>
+                      10 Likes
                   </div>
                   <div className="post-footer">
                       Comments List

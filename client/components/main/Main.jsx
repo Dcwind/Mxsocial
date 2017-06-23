@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import StatusBar from './StatusBar';
+import Posts from '../post/Posts';
 
 export default class Main extends Component{
     render(){
@@ -10,7 +11,7 @@ export default class Main extends Component{
                         <div className="row">
                             <div className="col-sm-9"> 
                                 <StatusBar/>
-                                Posts 
+                                <Posts/>
                                 <button className="btn btn-md">More</button>
                             </div>
                             <div className="col-sm-3"> 

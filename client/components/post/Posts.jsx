@@ -1,13 +1,23 @@
 import React, {Component} from 'react';
 
 export default class Posts extends Component{
+
+    
     render(){
+    
+        dimage = (
+             <div>
+                <div className="panel-thumbnail">
+                    <img src="http://placehold.it/150x150" className="img-responsive postimage"/>
+                </div>
+            </div>
+        )
         return(
           <div className="col-sm-12">
               <div className="panel panel-white post panel-shadow">
                   <div className="post-heading">
                       <div className="pull-left image"> 
-                          Avatar
+                          <img className="img-circle avatar" src="http://placehold.it/48x48" alt=""/>
                       </div>
                       <div className="pull-left meta">
                           <div className="title h5">
@@ -20,7 +30,7 @@ export default class Posts extends Component{
                       <h3>Hello World !</h3>
                       <br/>
                   </div>
-                  <div className="col-md-12">Image
+                  <div className="col-md-12"> {dimage}
                       <br/>
                   </div>
                   <div className="actions">

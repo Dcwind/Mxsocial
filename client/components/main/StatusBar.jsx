@@ -14,6 +14,14 @@ export default class StatusBar extends Component{
 
     uploadFile(e){
         e.preventDefault();
+        FS.Utility.eachFile(e,(file)=>{
+            Images.insert(file,(err,fileObj)=>{
+                this.setState({
+                    image:fileObj._id,
+                    filename:fileObj.data.blob.name
+                });
+            });
+        });
         
     }
 

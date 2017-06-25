@@ -1,4 +1,6 @@
-import React, {Component} from 'react';
+import { Meteor } from 'meteor/meteor';
+import React, { Component } from 'react';
+import { createContainer } from 'meteor/react-meteor-data';
 
 export default class StatusBar extends Component{
     constructor(props){
@@ -14,14 +16,29 @@ export default class StatusBar extends Component{
 
     uploadFile(e){
         e.preventDefault();
-        FS.Utility.eachFile(e,(file)=>{
-            Images.insert(file,(err,fileObj)=>{
-                this.setState({
-                    image:fileObj._id,
-                    filename:fileObj.data.blob.name
+        
+        if (event.currentTarget.files && event.currentTarget.files[0]) {
+            const file = event.currentTarget.files[0];
+
+            if (file) {
+                const upload = Images.insert({
+                    file: event.currentTarget.files[0],
+                    streams: 'dynamic',
+                    chunkSize: 'dynamic',
+                }, false);
+
+                upload.on('end', (error, result) => {
+                    if (error) {
+                        console.log('Error during upload:', error);
+                        this.setState({ imageId: '', fileName: '' });
+                    } else {
+                        this.setState({ imageId: result._id, fileName: result.name });
+                    }
                 });
-            });
-        });
+
+                upload.start();
+            }
+        }
         
     }
 

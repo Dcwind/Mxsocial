@@ -1,38 +1,70 @@
 import { Meteor } from 'meteor/meteor';
 import React, { Component } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
+import Images from '../../collections/Images';
 
 export default class StatusBar extends Component{
     constructor(props){
         super(props)
 
         this.state ={
-            image:'',
-            filename:''
+            imageId:'',
+            fileName:''
         };
-
+        this.resetFields = this.resetFields.bind(this);
+        this.submitForm = this.submitForm.bind(this);
         this.uploadFile = this.uploadFile.bind(this);
+    }
+
+    resetFields() {
+        this.refs.sharing.value = '';
+        this.refs.sharing.focus();
+    }
+
+    submitForm(event) {
+        event.preventDefault();
+        const message = this.refs.sharing.value.trim();
+        const imageId = this.state.imageId;
+        let imageURL = '';
+
+        if (imageId) {
+            const image = Images.findOne({ _id: imageId });
+            if (image) {
+                imageURL = image.link();
+            }
+        } else {
+            imageURL = '';
+        }
+
+        Meteor.call('Posts.insert', message, imageURL, (error) => {
+            if (error) {
+                console.log(error);
+            } else {
+                this.setState({ image: '', fileName: '' });
+                this.resetFields();
+            }
+        });
     }
 
     uploadFile(e){
         e.preventDefault();
         
-        if (event.currentTarget.files && event.currentTarget.files[0]) {
-            const file = event.currentTarget.files[0];
+        if (e.currentTarget.files && e.currentTarget.files[0]) {
+            const file = e.currentTarget.files[0];
 
             if (file) {
                 const upload = Images.insert({
-                    file: event.currentTarget.files[0],
+                    file: e.currentTarget.files[0],
                     streams: 'dynamic',
                     chunkSize: 'dynamic',
                 }, false);
 
-                upload.on('end', (error, result) => {
+                upload.on('end', (error, fileObj) => {
                     if (error) {
                         console.log('Error during upload:', error);
                         this.setState({ imageId: '', fileName: '' });
                     } else {
-                        this.setState({ imageId: result._id, fileName: result.name });
+                        this.setState({ imageId: fileObj._id, fileName: fileObj.name });
                     }
                 });
 

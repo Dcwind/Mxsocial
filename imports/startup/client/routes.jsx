@@ -33,4 +33,3 @@ privateRoutes.route('/dashboard',{
     }
 });
 
-// console.log("test");

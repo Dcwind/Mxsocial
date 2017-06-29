@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Navbar from '../navbar/NavBar';
+import Navbar from '../components/NavBar';
 
 class DashBoardLayoutComponent extends Component{
     render(){

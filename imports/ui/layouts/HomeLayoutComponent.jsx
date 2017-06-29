@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import SignupForm from '../signup/SignupForm';
-import Header from '../header/Header';
-import FeaturesList from '../features/FeaturesList'
+import SignupForm from '../components/SignupForm';
+import Header from '../components/Header';
+import FeaturesList from '../components/FeaturesList'
 
 class HomeLayoutComponent extends Component {
     render(){

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import StatusBar from './StatusBar';
-import Posts from '../post/Posts';
-import Ads from '../ads/Ads';
+import Posts from './Posts';
+import Ads from './Ads';
 
 export default class Main extends Component{
     render(){

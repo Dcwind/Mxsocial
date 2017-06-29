@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import React, { Component } from 'react';
-import { createContainer } from 'meteor/react-meteor-data';
+//import { createContainer } from 'meteor/react-meteor-data';
 import Images from '../../appLogic/images/Images';
 
 export default class StatusBar extends Component{

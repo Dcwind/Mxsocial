@@ -5,8 +5,8 @@ import {mount} from 'react-mounter';
 
 import HomeLayoutComponent from '../../ui/layouts/HomeLayoutComponent';
 import DashBoardLayoutComponent from '../../ui/layouts/DashBoardLayoutComponent';
-import Main from '../../ui/components/main/Main';
-import SideBar from '../../ui/components/sidebar/SideBar';
+import Main from '../../ui/components/Main';
+import SideBar from '../../ui/components/SideBar';
 
 publicRoutes = FlowRouter.group({
     name: "publicroutes"

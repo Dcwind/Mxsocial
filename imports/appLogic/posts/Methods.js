@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-import Posts from './posts';
+import Posts from './Posts';
 
 Meteor.methods({
     'Posts.insert': function postsInsert(message, imageURL) {

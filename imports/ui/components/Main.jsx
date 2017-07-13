@@ -1,11 +1,22 @@
 import React, {Component} from 'react';
 import StatusBar from './StatusBar';
-import Posts from './Posts';
-import Ads from './Ads';
+import Post from './Post';
+import Ad from './Ad';
+import Posts from '../../appLogic/posts/Posts';
+import Ads from '../../appLogic/ads/Ads';
 
 export default class Main extends Component{
     render(){
-        var adObj = {_id:1,text:'My First Ad',title:'Some Company',image:'http://placehold.it/150x150'};
+        var adObj = {
+                      _id:1,text:'My First Ad',
+                      title:'Some Company',
+                      image:'http://placehold.it/150x150'
+                    };
+
+        const posts = this.props.posts.map((post) => {
+            return <Post key={post._id} post={post} />;
+        });
+
         return(
             <div className="col-sm-9 col-sm-11" id="main">
                 <div>

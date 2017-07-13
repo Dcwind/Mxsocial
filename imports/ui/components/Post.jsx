@@ -4,14 +4,16 @@ export default class Post extends Component{
 
     
     render(){
-    
-        dimage = (
-             <div>
-                <div className="panel-thumbnail">
-                    <img src="http://placehold.it/150x150" className="img-responsive postimage"/>
+        if (this.props.post.imageurl){
+              dimage = (
+                <div>
+                    <div className="panel-thumbnail">
+                        <img src={this.props.post.imageurl} className="img-responsive postimage"/>
+                    </div>
                 </div>
-            </div>
-        )
+              )
+        }
+      
         return(
           <div className="col-sm-12">
               <div className="panel panel-white post panel-shadow">
@@ -48,3 +50,5 @@ export default class Post extends Component{
         )
     }
 }
+
+// displaying passed in props from Main

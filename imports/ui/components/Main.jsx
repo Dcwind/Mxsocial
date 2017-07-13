@@ -1,14 +1,17 @@
-import React, {Component} from 'react';
+import React, { Component, PropTypes } from 'react';
+import { createContainer } from 'meteor/react-meteor-data';
 import StatusBar from './StatusBar';
 import Post from './Post';
 import Ad from './Ad';
 import Posts from '../../appLogic/posts/Posts';
 import Ads from '../../appLogic/ads/Ads';
 
-export default class Main extends Component{
+class Main extends Component{
     render(){
+
         var adObj = {
-                      _id:1,text:'My First Ad',
+                      _id:1,
+                      text:'My First Ad',
                       title:'Some Company',
                       image:'http://placehold.it/150x150'
                     };
@@ -24,7 +27,7 @@ export default class Main extends Component{
                         <div className="row">
                             <div className="col-sm-9"> 
                                 <StatusBar/>
-                                <Posts/>
+                                {posts}
                                 <button className="btn btn-md">More</button>
                             </div>
                             <div className="col-sm-3"> 
@@ -37,3 +40,18 @@ export default class Main extends Component{
         )
     }
 }
+
+Main.propTypes = {
+    posts: PropTypes.array,
+    ads: PropTypes.array,
+};
+
+export default createContainer(() => {
+    Meteor.subscribe('Posts.list');
+    Meteor.subscribe('Ads.list');
+
+    return {
+        posts: Posts.find({}, { sort: { createdAt: -1 } }).fetch(),
+        ads: Ads.find({}, {}).fetch(),
+    };
+}, Main);

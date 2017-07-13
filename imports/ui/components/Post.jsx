@@ -27,7 +27,7 @@ export default class Post extends Component{
                       </div>
                   </div>
                   <div className="col-md-12 post-description">
-                      <h3>Hello World !</h3>
+                      <h3>{this.props.post.message}</h3>
                       <br/>
                   </div>
                   <div className="col-md-12"> 

@@ -13,7 +13,15 @@ publicRoutes = FlowRouter.group({
 });
 
 privateRoutes = FlowRouter.group({
-    name: "privateroutes"
+    name: "privateroutes",
+    triggersEnter: [
+            function(context,redirect){ 
+                if(!Meteor.userId() ) { 
+                    return FlowRouter.go('/') 
+                } 
+            }
+        ]
+
 });
 
 publicRoutes.route('/',{

@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
 import { Accounts } from 'meteor/accounts-base';
 
@@ -28,7 +28,7 @@ export default class SignupForm extends Component{
      displayError(message){
          this.setState({
              message:message,
-             messageClass:'alert alert-danger'
+             messageClass:'alert alert-danger registerError'
             });
      }
 

@@ -41,3 +41,6 @@ privateRoutes.route('/dashboard',{
     }
 });
 
+publicRoutes.route('signout',{
+    name:});
+

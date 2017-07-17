@@ -1,6 +1,15 @@
 import React, {Component} from 'react';
 
 export default class Header extends Component{
+
+    constructor(props){
+        super();
+        this.setState({
+
+        })
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
     render(){
         return(
             <div>

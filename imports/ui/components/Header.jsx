@@ -3,9 +3,11 @@ import React, {Component} from 'react';
 export default class Header extends Component{
 
     constructor(props){
-        super();
+        super(props);
+        
         this.setState({
-
+             message: '',
+             messageClass: 'hidden',
         })
         this.handleSubmit = this.handleSubmit.bind(this);
     }

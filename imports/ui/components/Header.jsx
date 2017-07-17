@@ -20,8 +20,16 @@ export default class Header extends Component{
             messageClass: 'hidden'
         });
 
-        const email = this.refs.email.trim();
-        const password = this.refs.password.trim();
+        const email = this.refs.email.value.trim();
+        const password = this.refs.password.value.trim();
+
+        Meteor.loginWithPassword(email, password, (error) => {
+            if (error) {
+                this.displayError(error.reason);
+            } else {
+                FlowRouter.go('/dashboard');
+            }
+        });
     }
 
     render(){

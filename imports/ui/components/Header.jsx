@@ -12,6 +12,13 @@ export default class Header extends Component{
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    displayError(error){
+        this.setState({
+            message: error,
+            messageClass: "alert alert-danger message"
+        });
+    }
+
     handleSubmit(e){
         e.preventDefault();
 

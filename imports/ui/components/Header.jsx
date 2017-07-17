@@ -4,12 +4,24 @@ export default class Header extends Component{
 
     constructor(props){
         super(props);
-        
+
         this.setState({
              message: '',
-             messageClass: 'hidden',
+             messageClass: 'hidden'
         })
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleSubmit(e){
+        e.preventDefault();
+
+        this.setState({
+            message: '',
+            messageClass: 'hidden'
+        });
+
+        const email = this.refs.email.trim();
+        const password = this.refs.password.trim();
     }
 
     render(){

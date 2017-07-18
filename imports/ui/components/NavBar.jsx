@@ -43,7 +43,7 @@ class NavBar extends Component{
         if (!ready) {
             return <div>Loading...</div>;
         }
-        
+
         return(
             <div className="navbar navbar-blue navbar-fixed-top">
                 <div className="navbar-header">
@@ -101,5 +101,8 @@ class NavBar extends Component{
     }
 }
 
-
+NavBar.propTypes = {
+    currentUser: PropTypes.object,
+    ready: PropTypes.bool,
+};
 

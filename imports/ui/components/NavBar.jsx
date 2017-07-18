@@ -19,7 +19,7 @@ class NavBar extends Component{
 
         $('#typeahead').typeahead({
             name: 'users',
-            local: usernames,
+            local: usernames
         });
     }    
 
@@ -27,8 +27,23 @@ class NavBar extends Component{
         e.preventDefualt();
 
         const searchText = (this.refs.searchText.value).trim();
+
+        if(searchText !== ""){
+            FlowRouter.go('/user/' + searchText);
+        }
     }
     render(){
+        const fullname = '${currentUser.profile.firstname} ${currentUser.profile.lastname}';
+
+        const {
+            currentUser,
+            ready,
+        } = this.props;
+
+        if (!ready) {
+            return <div>Loading...</div>;
+        }
+        
         return(
             <div className="navbar navbar-blue navbar-fixed-top">
                 <div className="navbar-header">
@@ -44,7 +59,7 @@ class NavBar extends Component{
             </a>
 
             <nav className="collapse navbar-collapse">
-                <form action="" role="form" className="navbar-form navbar-left">
+                <form onSubmit={this.handleSubmit} role="form" className="navbar-form navbar-left">
                     <div className="input-group input-group-sm bs-example">
                         <input type="text" ref="searchText" className="form-control tt-query" id="typeahead"/>
                         <div className="input-group-btn searchBtn">
@@ -64,7 +79,7 @@ class NavBar extends Component{
                 <ul className="nav navbar-nav navbar-right">
                     <li className="dropdown">
                         <a href="#" data-toggle="dropdown" className="dropdown-toggle">
-                            <i className="fa fa-user"> Luke Ascarbar</i>
+                            <i className="fa fa-user"> {fullname}</i>
                         </a>
                         <ul className="dropdown-menu">
                             <li>

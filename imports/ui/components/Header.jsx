@@ -60,6 +60,10 @@ export default class Header extends Component{
                             <input type="password" placeholder="Password" id="password" ref="password" className="form-control"/>
                         </div>
                         <button type="submit" className="btn btn-primary">Login</button>
+                        <br />
+                        <span className={this.state.messageClass}>
+                            {this.state.message}
+                        </span>
                     </form>
                 </div>
             </div>

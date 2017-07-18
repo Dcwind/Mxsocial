@@ -1,6 +1,13 @@
-import React, {Component} from 'react';
+import React, { Component, PropTypes } from 'react';
+import { createContainer } from 'meteor/react-meteor-data';
 
-export default class NavBar extends Component{
+class NavBar extends Component{
+    constructor(props){
+        super(props)
+        this.setState({
+            
+        })
+    }
     render(){
         return(
             <div className="navbar navbar-blue navbar-fixed-top">

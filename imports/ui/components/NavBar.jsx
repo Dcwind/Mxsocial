@@ -1,12 +1,21 @@
 import React, { Component, PropTypes } from 'react';
+import $ from 'jquery';
 import { createContainer } from 'meteor/react-meteor-data';
 
 class NavBar extends Component{
+
     constructor(props){
         super(props)
-        this.setState({
-            
-        })
+        
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    
+
+    handleSubmit(e){
+        e.preventDefualt();
+
+        const searchText = (this.refs.searchText.value).trim();
     }
     render(){
         return(

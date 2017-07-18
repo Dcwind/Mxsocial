@@ -106,3 +106,12 @@ NavBar.propTypes = {
     ready: PropTypes.bool,
 };
 
+export default createContainer(() => {
+    const currentUser = Meteor.user();
+
+    return {
+        currentUser,
+        ready: !!currentUser,
+    };
+}, NavBar);
+

@@ -10,7 +10,18 @@ class NavBar extends Component{
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    
+    componentDidMount() {
+        
+        const users = Meteor.users.find({}, { fields: { profile: 1 } }).fetch();
+        const usernames = users.map((user) => {
+            return user.profile.fullname;
+        });
+
+        $('#typeahead').typeahead({
+            name: 'users',
+            local: usernames,
+        });
+    }    
 
     handleSubmit(e){
         e.preventDefualt();

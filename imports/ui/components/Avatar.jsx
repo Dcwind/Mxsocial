@@ -2,6 +2,12 @@ import React, { Component, PropTypes } from 'react';
 
 export default class Avatar extends Component {
     render(){
+        const {
+            avatar,
+            firstName,
+            lastName,
+            klass
+        } = this.props;
 
        
     }

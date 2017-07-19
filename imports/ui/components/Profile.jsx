@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import {createContainer} from 'meteor/react-meteor-data';
 
-export default class Profile extends Component {
+ class Profile extends Component {
     render(){
         return (
             <div className="row">
                 <div className="col-md-2 hidden-xs" align="center">
-                Avater
+                <Avatar user={this.currentUser ? this.currentUser._id:''} klass={this.state.klass} />
                     <div>
                         <label htmlFor="">
                             <div className="inputWrapper">
@@ -28,3 +29,12 @@ export default class Profile extends Component {
         )
     }
 }
+
+export default createContainer(() => {
+    const currentUser = Meteor.user();
+
+    return {
+        currentUser
+    }
+
+},Profile)

@@ -1,15 +1,15 @@
 
 import { Meteor } from 'meteor/meteor';
-import Images from './images';
+import Images from './Images';
 
 Meteor.methods({
-    'Images.changeAvatar': function changeAvatar(imageId) {
-        if (imageId) {
-            const image = Images.findOne({ _id: imageId });
-            if (image !== undefined) {
+    'Images.changeAvatar': function changeAvatar(ImageId) {
+        if (ImageId) {
+            const Image = Images.findOne({ _id: ImageId });
+            if (Image !== undefined) {
                 Meteor.users.update(Meteor.userId(), {
                     $set: {
-                        'profile.avatar': image.link(),
+                        'profile.avatar': Image.link(),
                     },
                 });
             }

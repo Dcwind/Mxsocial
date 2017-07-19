@@ -35,7 +35,14 @@ import Avatar from './Avatar';
                     chunkSize: 'dynamic',
                 }, false);
 
-                
+                upload.on('end', (error, result) => {
+                    if (error) {
+                        console.log('Error during upload:', error);
+                        this.setState({ imageId: '', fileName: '' });
+                    } else {
+                        
+                    }
+                });
 
                 upload.start();
             }

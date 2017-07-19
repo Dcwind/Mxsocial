@@ -25,6 +25,21 @@ import Avatar from './Avatar';
      uploadFile(e){
          e.preventDefualt();
 
+         if (event.currentTarget.files && event.currentTarget.files[0]) {
+            const file = event.currentTarget.files[0];
+
+            if (file) {
+                const upload = Images.insert({
+                    file: event.currentTarget.files[0],
+                    streams: 'dynamic',
+                    chunkSize: 'dynamic',
+                }, false);
+
+                
+
+                upload.start();
+            }
+        }
 
      }
 

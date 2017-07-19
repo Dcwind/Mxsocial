@@ -14,6 +14,7 @@ import Avatar from './Avatar';
          })
 
          this.uploadFile = this.uploadFile.bind(this);
+         this.changeEmail = this.changeEmail.bind(this);
      }
 
     componentWillReceiveProps(newProps) {
@@ -22,15 +23,21 @@ import Avatar from './Avatar';
         }
     }
 
+    changeEmail(e){
+        e.preventDefualt();
+
+        const newEmail = this.refs.email.value.trim();
+    }
+
      uploadFile(e){
          e.preventDefualt();
 
-         if (event.currentTarget.files && event.currentTarget.files[0]) {
-            const file = event.currentTarget.files[0];
+         if (e.currentTarget.files && e.currentTarget.files[0]) {
+            const file = e.currentTarget.files[0];
 
             if (file) {
                 const upload = Images.insert({
-                    file: event.currentTarget.files[0],
+                    file: e.currentTarget.files[0],
                     streams: 'dynamic',
                     chunkSize: 'dynamic',
                 }, false);
@@ -44,7 +51,7 @@ import Avatar from './Avatar';
                             if (errorAvatar) {
                                 console.log('Error during changeAvatar:', errorAvatar);
                             } else {
-                                this.setState({ className: 'img-circle img-responsive custom-input-file updated' });
+                                this.setState({ klass: 'img-circle img-responsive custom-input-file updated' });
                             }
                         });
                     }

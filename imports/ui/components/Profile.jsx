@@ -60,7 +60,7 @@ import Avatar from './Avatar';
 
         const {
             currentUser,
-            ready,
+            ready
         } = this.props;
 
         if (!ready) {
@@ -70,7 +70,7 @@ import Avatar from './Avatar';
         return (
             <div className="row">
                 <div className="col-md-2 hidden-xs" align="center">
-                <Avatar user={this.currentUser ? this.currentUser._id:''} klass={this.state.klass} />
+                <Avatar avatar={currentUser.profile.avatar} klass={this.state.klass} />
                     <div>
                         <label htmlFor="">
                             <div className="inputWrapper">

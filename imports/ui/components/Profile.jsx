@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import {createContainer} from 'meteor/react-meteor-data';
 import Images from '../../appLogic/images/images'; 
 import Avatar from './Avatar';
@@ -29,7 +29,7 @@ import Avatar from './Avatar';
      }
 
     render(){
-        
+
         const {
             currentUser,
             ready,
@@ -65,6 +65,11 @@ import Avatar from './Avatar';
         )
     }
 }
+
+Profile.propTypes = {
+    currentUser: PropTypes.object,
+    ready: PropTypes.bool,
+};
 
 export default createContainer(() => {
     const currentUser = Meteor.user();

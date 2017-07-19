@@ -9,7 +9,17 @@ export default class Avatar extends Component {
             klass
         } = this.props;
 
-       
+        if (!avatar) {
+            return (
+                <img
+                    className={this.props.klass}
+                    src='/images/generic-user-profile.png'
+                    alt="Image"
+                />
+            );
+        }
+
+        
     }
 }
 

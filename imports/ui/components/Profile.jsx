@@ -42,9 +42,9 @@ import Avatar from './Avatar';
             });
 
             this.setState({ email: newEmail });
-        }else{
-            this.toggleEdit();
         }
+            this.toggleEdit();
+        
     }
 
      uploadFile(e){
@@ -63,7 +63,7 @@ import Avatar from './Avatar';
                 upload.on('end', (error, result) => {
                     if (error) {
                         console.log('Error during upload:', error);
-                        this.setState({ imageId: '', fileName: '' });
+                        this.setState({ ImageId: '', fileName: '' });
                     } else {
                         Meteor.call('Images.changeAvatar', result._id, (errorAvatar) => {
                             if (errorAvatar) {
@@ -98,7 +98,11 @@ import Avatar from './Avatar';
             onBlur={this.changeEmail}
             type="text"
         />;
-        
+
+        const emailLink = `mailto:${currentUser.emails[0].address}`;
+        const mailBlock = this.state.editMode ? editMode : <a href={emailLink}>{this.state.email}</a>;
+
+
         return (
             <div className="row">
                 <div className="col-md-2 hidden-xs" align="center">
@@ -116,7 +120,8 @@ import Avatar from './Avatar';
                     <table className="table table-user-information">
                         <tbody>
                             <tr>
-                                <td>Email</td>
+                                <td onClick={this.toggleEdit}>Email</td>
+                                <td>{mailBlock}</td>
                             </tr>
                         </tbody>
                     </table>

@@ -27,6 +27,16 @@ import Avatar from './Avatar';
         e.preventDefualt();
 
         const newEmail = this.refs.email.value.trim();
+
+        if (newEmail !== this.state.email) {
+            Meteor.call('Users.changeEmail', newEmail, (error) => {
+                if (error) {
+                    console.log(error);
+                }
+            });
+
+            this.setState({ email: newEmail });
+        }
     }
 
      uploadFile(e){

@@ -2,6 +2,25 @@ import React, { Component } from 'react';
 import {createContainer} from 'meteor/react-meteor-data';
 
  class Profile extends Component {
+     constructor(props){
+         super(props)
+
+         this.setState({
+             klass
+         })
+
+         this.uploadFile = this.uploadFile.bind(this);
+     }
+     componentDidMount(){
+
+     }
+
+     uploadFile(e){
+         e.preventDefualt();
+
+         
+     }
+
     render(){
         return (
             <div className="row">
@@ -35,6 +54,6 @@ export default createContainer(() => {
 
     return {
         currentUser
-    }
+    };
 
 },Profile)

@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import {createContainer} from 'meteor/react-meteor-data';
+import Images from '../../appLogic/images/images'; 
+import Avatar from './Avatar';
 
  class Profile extends Component {
      constructor(props){
          super(props)
 
          this.setState({
-             klass
+             klass: 'img-circle img-responsive custom-input-file',
+             editMode: false,
+             email: '',
          })
 
          this.uploadFile = this.uploadFile.bind(this);
@@ -18,7 +22,7 @@ import {createContainer} from 'meteor/react-meteor-data';
      uploadFile(e){
          e.preventDefualt();
 
-         
+
      }
 
     render(){

@@ -15,9 +15,12 @@ import Avatar from './Avatar';
 
          this.uploadFile = this.uploadFile.bind(this);
      }
-     componentDidMount(){
 
-     }
+    componentWillReceiveProps(newProps) {
+        if (newProps.ready === true) {
+            this.setState({ email: newProps.currentUser.emails[0].address });
+        }
+    }
 
      uploadFile(e){
          e.preventDefualt();
@@ -26,6 +29,16 @@ import Avatar from './Avatar';
      }
 
     render(){
+        
+        const {
+            currentUser,
+            ready,
+        } = this.props;
+
+        if (!ready) {
+            return <div>Loading...</div>;
+        }
+
         return (
             <div className="row">
                 <div className="col-md-2 hidden-xs" align="center">
@@ -57,7 +70,8 @@ export default createContainer(() => {
     const currentUser = Meteor.user();
 
     return {
-        currentUser
+        currentUser,
+        ready: !!currentUser
     };
 
 },Profile)

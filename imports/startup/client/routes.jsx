@@ -50,3 +50,13 @@ publicRoutes.route('signout',{
     }
 });
 
+privateRoutes.route('/profile',{
+    name:'profile',
+    action:function(){
+        mount(DashBoardLayoutComponent,{
+            sidebar: <SideBar/>,
+            content: <Profile/>
+        })
+    }
+});
+

@@ -40,7 +40,13 @@ import Avatar from './Avatar';
                         console.log('Error during upload:', error);
                         this.setState({ imageId: '', fileName: '' });
                     } else {
-                        
+                        Meteor.call('Images.changeAvatar', result._id, (errorAvatar) => {
+                            if (errorAvatar) {
+                                console.log('Error during changeAvatar:', errorAvatar);
+                            } else {
+                                this.setState({ className: 'img-circle img-responsive custom-input-file updated' });
+                            }
+                        });
                     }
                 });
 
@@ -68,7 +74,7 @@ import Avatar from './Avatar';
                     <div>
                         <label htmlFor="">
                             <div className="inputWrapper">
-                                <input type="file" name="avatar" id="avatar" className="fileInput change-avatar"/>
+                                <input type="file" onChange={this.uploadFile} name="avatar" id="avatar" className="fileInput change-avatar"/>
                             </div>
                         </label>
                     </div>

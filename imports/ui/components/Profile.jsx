@@ -15,6 +15,7 @@ import Avatar from './Avatar';
 
          this.uploadFile = this.uploadFile.bind(this);
          this.changeEmail = this.changeEmail.bind(this);
+         this.toggleEdit = this.toggleEdit.bind(this);
      }
 
     componentWillReceiveProps(newProps) {
@@ -22,6 +23,11 @@ import Avatar from './Avatar';
             this.setState({ email: newProps.currentUser.emails[0].address });
         }
     }
+
+    toggleEdit() {
+        this.setState({ editMode: !this.state.editMode });
+    }
+
 
     changeEmail(e){
         e.preventDefualt();
@@ -36,6 +42,8 @@ import Avatar from './Avatar';
             });
 
             this.setState({ email: newEmail });
+        }else{
+            this.toggleEdit();
         }
     }
 
@@ -84,6 +92,13 @@ import Avatar from './Avatar';
             return <div>Loading...</div>;
         }
 
+        const editMode = <input
+            ref="email"
+            defaultValue={this.state.email}
+            onBlur={this.changeEmail}
+            type="text"
+        />;
+        
         return (
             <div className="row">
                 <div className="col-md-2 hidden-xs" align="center">

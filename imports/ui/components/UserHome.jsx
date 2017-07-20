@@ -13,13 +13,28 @@ class UserHome extends Component{
         if (!ready && !user) {
             return <div>Loading...</div>;
         }
+
+        return (
+        <div>
+                <div className="col-md-9">
+                    <div className="panel panel-default">
+                        <div className="panel-heading">
+                            <h2>user Header</h2>
+                        </div>
+                        <div className="panel-body">
+                            <h2>user fullname</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
     }
 }
 
 UserHome.propTypes = {
     className: PropTypes.string,
     currentUser: PropTypes.object,
-    user: PropTypes.object,
+    user: PropTypes.object, 
     ready: PropTypes.bool,
 
 };

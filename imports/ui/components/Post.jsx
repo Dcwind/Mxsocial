@@ -65,5 +65,10 @@ export default createContainer((props)=> {
         user = Meteor.users.findOne({ _id: props.post.user._id });
     }
 
+    return {
+        currentUser,
+        user,
+        ready: !!currentUser && user !== null,
+    };
     
 }, Post);

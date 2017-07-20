@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import React, {Component, PropTypes} from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
 import Avatar from './Avatar';
+import FullName from './FullName';
 
  class Post extends Component{
 

@@ -1,6 +1,8 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
+import { createContainer } from 'meteor/react-meteor-data';
+import Avatar from './Avatar';
 
-export default class Post extends Component{
+ class Post extends Component{
 
     
     render(){
@@ -19,6 +21,7 @@ export default class Post extends Component{
               <div className="panel panel-white post panel-shadow">
                   <div className="post-heading">
                       <div className="pull-left image"> 
+                          <Avatar></Avatar>
                           <img className="img-circle avatar" src="http://placehold.it/48x48" alt=""/>
                       </div>
                       <div className="pull-left meta">
@@ -52,3 +55,7 @@ export default class Post extends Component{
 }
 
 // displaying passed in props from Main
+
+export default createContainer((props)=> {
+
+}, Post);

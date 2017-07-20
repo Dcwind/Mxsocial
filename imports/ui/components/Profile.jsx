@@ -109,7 +109,7 @@ import Avatar from './Avatar';
                 <div className="col-md-2 hidden-xs" align="center">
                 <Avatar avatar={currentUser.profile.avatar} klass={this.state.klass} />
                     <div>
-                        <label htmlFor="">
+                        <label htmlFor="avatar">
                             <div className="inputWrapper">
                                 <input type="file" onChange={this.uploadFile} name="avatar" id="avatar" className="fileInput change-avatar"/>
                             </div>

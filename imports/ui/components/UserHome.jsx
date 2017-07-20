@@ -16,6 +16,14 @@ class UserHome extends Component{
     }
 }
 
+UserHome.propTypes = {
+    className: PropTypes.string,
+    currentUser: PropTypes.object,
+    user: PropTypes.object,
+    ready: PropTypes.bool,
+
+};
+
 export default createContainer((props)=> {
 
     const userhandle = Meteor.subscribe('Users.User', 'profile.fullname', props.params.fullname);

@@ -99,6 +99,7 @@ import Avatar from './Avatar';
             type="text"
         />;
 
+        const fullName = `${currentUser.profile.firstname} ${currentUser.profile.lastname}`;
         const emailLink = `mailto:${currentUser.emails[0].address}`;
         const mailBlock = this.state.editMode ? editMode : <a href={emailLink}>{this.state.email}</a>;
 
@@ -116,7 +117,7 @@ import Avatar from './Avatar';
                     </div>
                 </div>
                 <div className="col-md-9 col-xs-9">
-                    <h2>Luke Ascarbar</h2>
+                    <h2>{fullName}</h2>
                     <table className="table table-user-information">
                         <tbody>
                             <tr>

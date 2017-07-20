@@ -76,7 +76,7 @@ import Avatar from './Avatar';
                       <br/>
                   </div>
                   <div className="actions">
-                      <a href="" className="btn btn-default stat-item">
+                      <a href="" onClick={this.likePost} className="btn btn-default stat-item">
                           <i className="fa fa-thumbs-up icon"></i>&nbsp; 
                       </a>
                       10 Likes

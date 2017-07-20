@@ -95,7 +95,13 @@ import FullName from './FullName';
                       </div>
                       <div className="pull-left meta">
                           <div className="title h5">
-                              <b>Luke Ascarbar</b>&nbsp; made a post
+                              <b>
+                                <FullName
+                                   fullName={user.profile.fullname}
+                                   firstName={user.profile.firstname}
+                                   lastName={user.profile.lastname}
+                                />
+                             </b>&nbsp; made a post
                           </div>
                           <h6 className="text-muted time">An hour ago</h6>
                       </div>

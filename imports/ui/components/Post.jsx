@@ -124,7 +124,12 @@ import FullName from './FullName';
 }
 
 
-
+Post.propTypes = {
+    post: PropTypes.object.isRequired,
+    currentUser: PropTypes.object,
+    user: PropTypes.object,
+    ready: PropTypes.bool,
+};
 
 export default createContainer((props)=> {
     const userhandle = Meteor.subscribe('Users.User', '_id', props.post.user._id);

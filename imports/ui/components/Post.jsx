@@ -1,3 +1,4 @@
+import { Meteor } from 'meteor/meteor';
 import React, {Component, PropTypes} from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
 import Avatar from './Avatar';
@@ -5,9 +6,10 @@ import Avatar from './Avatar';
  class Post extends Component{
 
     constructor(props){
-        super(orops)
+        super(porops)
 
         this.likePost = this.likePost.bind(this);
+        this.renderLikes = this.renderLikes.bind(this);
     }
 
     likePost(e){
@@ -23,12 +25,37 @@ import Avatar from './Avatar';
             }
         });
     }
+
+    renderLikes(){
+        const {
+            currentUser,
+            post,
+        } = this.props;
+
+        let likes = '';
+        let likeSub = 0;
+
+        if (post.likes.indexOf(currentUser._id) !== -1) {
+            likes = 'You and';
+            likeSub = 1;
+        }
+
+        switch (post.likes.length - likeSub) {
+            case 0:
+              return likeSub > 0 ? 'You like this' : '';
+            case 1:
+                return likeSub > 0 ? `${likes} 1 other person likes this` : '1 person likes this';
+            default:
+                return `${likes} ${post.likes.length - likeSub} people like this`;
+        }
+    }
+
     render(){
 
          const {
             ready,
             post,
-            user,
+            user, 
         } = this.props;
 
 
@@ -58,7 +85,7 @@ import Avatar from './Avatar';
                             klass="img-circle avatar" 
                           />
 
-                          <img className="img-circle avatar" src="http://placehold.it/48x48" alt=""/>
+                          {/* <img className="img-circle avatar" src="http://placehold.it/48x48" alt=""/> */}
                       </div>
                       <div className="pull-left meta">
                           <div className="title h5">
@@ -79,7 +106,7 @@ import Avatar from './Avatar';
                       <a href="" onClick={this.likePost} className="btn btn-default stat-item">
                           <i className="fa fa-thumbs-up icon"></i>&nbsp; 
                       </a>
-                      10 Likes
+                      {this.renderLikes()}
                   </div>
                   <div className="post-footer">
                       Comments List

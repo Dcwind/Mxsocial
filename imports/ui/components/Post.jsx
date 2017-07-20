@@ -4,9 +4,39 @@ import Avatar from './Avatar';
 
  class Post extends Component{
 
-    
+    constructor(props){
+        super(orops)
+
+        this.likePost = this.likePost.bind(this);
+    }
+
+    likePost(e){
+        e.preventDefualt();
+
+        const {
+            post,
+        } = this.props;
+
+        Meteor.call('Posts.like', post._id, (error) => {
+            if (error) {
+                console.log(error);
+            }
+        });
+    }
     render(){
-        if (this.props.post.imageurl){
+
+         const {
+            ready,
+            post,
+            user,
+        } = this.props;
+
+
+        if (!ready) {
+            return <div>Loading...</div>;
+        }
+
+        if (post.imageurl){
               dimage = (
                 <div>
                     <div className="panel-thumbnail">
@@ -21,7 +51,13 @@ import Avatar from './Avatar';
               <div className="panel panel-white post panel-shadow">
                   <div className="post-heading">
                       <div className="pull-left image"> 
-                          <Avatar></Avatar>
+                          <Avatar 
+                            avatar={user.profile.avatar} 
+                            firstName={user.profile.firstname} 
+                            lastName={user.profile.lastname} 
+                            klass="img-circle avatar" 
+                          />
+
                           <img className="img-circle avatar" src="http://placehold.it/48x48" alt=""/>
                       </div>
                       <div className="pull-left meta">

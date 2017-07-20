@@ -24,7 +24,7 @@ export default class StatusBar extends Component{
     submitForm(event) {
         event.preventDefault();
         const message = this.refs.sharing.value.trim();
-        const imageId = this.state.imageId;
+        const ImageId = this.state.imageId;
         let imageURL = '';
 
         if (imageId) {

@@ -57,5 +57,13 @@ import Avatar from './Avatar';
 // displaying passed in props from Main
 
 export default createContainer((props)=> {
+    const userhandle = Meteor.subscribe('Users.User', '_id', props.post.user._id);
+    const currentUser = Meteor.user();
 
+    let user = null;
+    if (userhandle.ready()) {
+        user = Meteor.users.findOne({ _id: props.post.user._id });
+    }
+
+    
 }, Post);

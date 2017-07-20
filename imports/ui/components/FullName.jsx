@@ -3,8 +3,19 @@ import React, {Component, PropTypes} from 'react';
 export default class FullName extends Component{
     render(){
         const {
-
+            fullName,
+            firstName,
+            lastName,
+            klass
         } = this.props
+
+        const personLink = (`/user/${fullName}`).toLowerCase();
+
+        return (
+         
+                <a href={personLink} className={klass}>{fullName}</a>
+         
+        )
     }
     
 }

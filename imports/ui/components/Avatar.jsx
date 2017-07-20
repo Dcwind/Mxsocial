@@ -12,7 +12,7 @@ export default class Avatar extends Component {
         if (!avatar) {
             return (
                 <img
-                    className={this.props.klass}
+                    className={klass}
                     src='/images/generic-user-profile.png'
                     alt="Image"
                 />

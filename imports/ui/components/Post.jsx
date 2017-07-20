@@ -1,13 +1,18 @@
+// displaying passed in props from Main
 import { Meteor } from 'meteor/meteor';
 import React, {Component, PropTypes} from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
 import Avatar from './Avatar';
-import FullName from './FullName';
+import FullName from './FullName';  
 
  class Post extends Component{
 
     constructor(props){
-        super(porops)
+        super(props)
+
+        this.state = {
+            fullName: '',
+        };
 
         this.likePost = this.likePost.bind(this);
         this.renderLikes = this.renderLikes.bind(this);
@@ -68,7 +73,7 @@ import FullName from './FullName';
               dimage = (
                 <div>
                     <div className="panel-thumbnail">
-                        <img src={this.props.post.imageurl} className="img-responsive postimage"/>
+                        <img src={post.imageurl} className="img-responsive postimage"/>
                     </div>
                 </div>
               )
@@ -96,7 +101,7 @@ import FullName from './FullName';
                       </div>
                   </div>
                   <div className="col-md-12 post-description">
-                      <h3>{this.props.post.message}</h3>
+                      <h3>{post.message}</h3>
                       <br/>
                   </div>
                   <div className="col-md-12"> 
@@ -118,7 +123,8 @@ import FullName from './FullName';
     }
 }
 
-// displaying passed in props from Main
+
+
 
 export default createContainer((props)=> {
     const userhandle = Meteor.subscribe('Users.User', '_id', props.post.user._id);

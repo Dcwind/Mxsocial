@@ -89,6 +89,7 @@ import FullName from './FullName';
                             firstName={user.profile.firstname} 
                             lastName={user.profile.lastname} 
                             klass="img-circle avatar" 
+                            wrapLink={true}
                           />
 
                           {/* <img className="img-circle avatar" src="http://placehold.it/48x48" alt=""/> */}
@@ -115,7 +116,7 @@ import FullName from './FullName';
                       <br/>
                   </div>
                   <div className="actions">
-                      <a href="" onClick={this.likePost} className="btn btn-default stat-item">
+                      <a href="#" onClick={this.likePost} className="btn btn-default stat-item">
                           <i className="fa fa-thumbs-up icon"></i>&nbsp; 
                       </a>
                       {this.renderLikes()}

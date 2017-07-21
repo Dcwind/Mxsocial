@@ -107,7 +107,13 @@ import Avatar from './Avatar';
         return (
             <div className="row">
                 <div className="col-md-2 hidden-xs" align="center">
-                <Avatar avatar={currentUser.profile.avatar} klass={this.state.klass} />
+                <Avatar 
+                    avatar={currentUser.profile.avatar}
+                    firstName={currentUser.profile.firstname}
+                    lastName={currentUser.profile.lastname}
+                    wrapLink={false} 
+                    klass={this.state.klass} 
+                />
                     <div>
                         <label htmlFor="avatar">
                             <div className="inputWrapper">

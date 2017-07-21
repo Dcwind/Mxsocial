@@ -60,3 +60,13 @@ privateRoutes.route('/profile',{
     }
 });
 
+publicRoutes.route('/profile:filename',{
+    name:'userHome',
+    action:function(){
+        mount(DashBoardLayoutComponent,{
+            sidebar: <SideBar/>,
+            content: <UserHome/>
+        })
+    }
+});
+

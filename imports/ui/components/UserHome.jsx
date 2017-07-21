@@ -14,6 +14,17 @@ class UserHome extends Component{
             return <div>Loading...</div>;
         }
 
+        let userHeader = '';
+        if (user != null && user.profile.fullname) {
+            userHeader = <Avatar
+                avatar={user.profile.avatar}
+                firstName={user.profile.firstname}
+                lastName={user.profile.lastname}
+                className="img-circle avatar"
+                wrapLink={false}
+            />;
+        } 
+
         return (
         <div>
                 <div className="col-md-9">

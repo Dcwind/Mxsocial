@@ -27,15 +27,22 @@ class UserHome extends Component{
             userHeader = 'No User Found';
         }
 
+        let userFullName = '';
+        if (user != null && user.profile) {
+            userFullName = `${user.profile.firstname} ${user.profile.lastname}`;
+        } else {
+            userFullName = 'No User Found';
+        }
+
         return (
         <div>
                 <div className="col-md-9">
                     <div className="panel panel-default">
                         <div className="panel-heading">
-                            <h2>user Header</h2>
+                            <h2>{userHome}</h2>
                         </div>
                         <div className="panel-body">
-                            <h2>user fullname</h2>
+                            <h2>{userFullName}</h2>
                         </div>
                     </div>
                 </div>

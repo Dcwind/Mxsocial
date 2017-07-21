@@ -23,7 +23,9 @@ class UserHome extends Component{
                 className="img-circle avatar"
                 wrapLink={false}
             />;
-        } 
+        }else {
+            userHeader = 'No User Found';
+        }
 
         return (
         <div>

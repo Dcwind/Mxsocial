@@ -60,7 +60,7 @@ privateRoutes.route('/profile',{
     }
 });
 
-publicRoutes.route('/profile:filename',{
+publicRoutes.route('/user/:filename',{
     name:'userHome',
     action:function(){
         mount(DashBoardLayoutComponent,{

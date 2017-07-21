@@ -6,7 +6,8 @@ export default class Avatar extends Component {
             avatar,
             firstName,
             lastName,
-            klass
+            klass,
+            wrapLink
         } = this.props;
 
         if (!avatar) {
@@ -18,6 +19,19 @@ export default class Avatar extends Component {
                 />
             );
         }
+
+        const personLink = (`/user/${firstName}${lastName}`).toLowerCase();
+        const avatarImg = <img className={klass} src={avatar} alt="Image" />;
+
+        if (wrapLink) {
+            return (
+                <a href={personLink}>
+                    {avatarImg}
+                </a>
+            );
+        }
+
+        return avatarImg;
 
         
     }

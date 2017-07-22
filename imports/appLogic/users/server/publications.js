@@ -6,6 +6,14 @@ Meteor.publish('Users.User', (searchField, data) => {
         {
             [searchField]: data,
         },
-
+        {
+            fields:
+                {
+                    'profile.firstname': 1,
+                    'profile.lastname': 1,
+                    'profile.fullname': 1,
+                    'profile.avatar': 1,
+                },
+        },
     );
 });

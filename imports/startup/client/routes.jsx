@@ -3,11 +3,12 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import React from 'react';
 import { render } from 'react-dom';
 import {mount} from 'react-mounter';
-
 import HomeLayoutComponent from '../../ui/layouts/HomeLayoutComponent';
 import DashBoardLayoutComponent from '../../ui/layouts/DashBoardLayoutComponent';
 import Main from '../../ui/components/Main';
 import SideBar from '../../ui/components/SideBar';
+import Profile from '../../ui/components/Profile';
+import UserHome from '../../ui/components/UserHome';
 
 publicRoutes = FlowRouter.group({
     name: "publicroutes"

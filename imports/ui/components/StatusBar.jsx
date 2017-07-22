@@ -106,3 +106,9 @@ import Images from '../../appLogic/images/Images';
         )
     }
 }
+
+export default createContainer(() => {
+    Meteor.subscribe('Images.all');
+
+    return {};
+}, StatusForm);

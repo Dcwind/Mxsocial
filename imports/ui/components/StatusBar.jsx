@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 //import { createContainer } from 'meteor/react-meteor-data';
 import Images from '../../appLogic/images/Images';
 
-export default class StatusBar extends Component{
+ class StatusBar extends Component{
     constructor(props){
         super(props)
 

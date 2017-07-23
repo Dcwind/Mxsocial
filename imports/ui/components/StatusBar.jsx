@@ -24,7 +24,7 @@ import Images from '../../appLogic/images/Images';
     submitForm(event) {
         event.preventDefault();
         const message = this.refs.sharing.value.trim();
-        const ImageId = this.state.imageId;
+        const imageId = this.state.imageId;
         let imageURL = '';
 
         if (imageId) {
@@ -82,7 +82,7 @@ import Images from '../../appLogic/images/Images';
                         update status
                     </div>
 
-                    <form action="" className="form center-block">
+                    <form onSubmit={this.submitForm} className="form center-block">
                         <input type="hidden"  ref="imageid" value={this.state.image}/>
                         <div className="panel-body">
                             <div className="form-group">

@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import $ from 'jquery';
+// import $ from 'jquery';
 import { createContainer } from 'meteor/react-meteor-data';
 
 class NavBar extends Component{

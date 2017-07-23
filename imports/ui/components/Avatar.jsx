@@ -14,7 +14,7 @@ export default class Avatar extends Component {
             return (
                 <img
                     className={klass}
-                    src='/images/generic-user-profile.png'
+                    src='http://placehold.it/48x48'
                     alt="Image"
                 />
             );
